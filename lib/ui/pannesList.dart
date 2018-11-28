@@ -2,7 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_database/ui/firebase_animated_list.dart';
-import 'users.dart';
+import 'pannes.dart';
 
 class PanneList extends StatefulWidget {
   @override
@@ -74,10 +74,10 @@ class PanneListState extends State<PanneList> {
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
-          //Navigator.push(
-          //context,
-          //MaterialPageRoute(builder: (context) => UserPage()),
-          //);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PannePage()),
+          );
         },
         child: new Icon(Icons.add),
         backgroundColor: Colors.blue,

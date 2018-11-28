@@ -14,6 +14,8 @@ class Login extends StatefulWidget {
 class LoginState extends State<Login> {
   final _emailcontroller = new TextEditingController();
   final _pswcontroller = new TextEditingController();
+  DatabaseReference dbref;
+  final FirebaseDatabase database = FirebaseDatabase.instance;
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -79,7 +81,41 @@ class LoginState extends State<Login> {
     );
   }
 
-  _LoginPage() {
-    Navigator.of(context).pushReplacementNamed('/home');
+  _LoginPage() async {
+    int ind = 0;
+    bool verif = false;
+    List userList = new List();
+    DataSnapshot response = await database
+        .reference()
+        .child('users')
+        .once()
+        .then((DataSnapshot snapshot) {
+      for (var value in snapshot.value.values) {
+        userList.add(value);
+      }
+      for (var us in userList) {
+        if (us['Email'] == _emailcontroller.text.toString().trim() &&
+            us['Password'] == _pswcontroller.text.toString().trim()) {
+          verif = true;
+          break;
+        }
+      }
+    });
+    if (verif) {
+      Navigator.of(context).pushReplacementNamed('/home');
+    } else {
+      _showToast(context);
+    }
+  }
+
+  void _showToast(BuildContext context) {
+    final scaffold = Scaffold.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        content: const Text('Email ou mot de passe incorrecte'),
+        action: SnackBarAction(
+            label: 'Annuler', onPressed: scaffold.hideCurrentSnackBar),
+      ),
+    );
   }
 }

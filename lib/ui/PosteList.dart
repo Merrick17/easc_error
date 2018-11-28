@@ -55,10 +55,6 @@ class PanneListState extends State<PanneList> {
                       child: ButtonBar(
                         children: <Widget>[
                           FlatButton(
-                            child: const Text('Reparer'),
-                            onPressed: () {/* ... */},
-                          ),
-                          FlatButton(
                             child: const Text('Details'),
                             onPressed: () {/* ... */},
                           )
