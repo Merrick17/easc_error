@@ -16,6 +16,7 @@ class LoginState extends State<Login> {
   final _pswcontroller = new TextEditingController();
   DatabaseReference dbref;
   final FirebaseDatabase database = FirebaseDatabase.instance;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -42,10 +43,9 @@ class LoginState extends State<Login> {
                     title: new TextField(
                       controller: _emailcontroller,
                       decoration: new InputDecoration(
-                          icon: new Icon(Icons.person_outline),
-                          hintText: "Email",
-                          labelText: 'Enter your Email',
-                          hintStyle: new TextStyle(color: Colors.white)),
+                        icon: new Icon(Icons.person_outline),
+                        labelText: 'Veuillez saisir votre adresse email',
+                      ),
                     ),
                   ),
                   new ListTile(
@@ -53,18 +53,19 @@ class LoginState extends State<Login> {
                       obscureText: true,
                       controller: _pswcontroller,
                       decoration: new InputDecoration(
-                          icon: new Icon(Icons.person_outline),
-                          labelText: 'Enter your password',
-                          hintText: "password",
-                          hintStyle: new TextStyle(color: Colors.white)),
+                        icon: new Icon(Icons.person_outline),
+                        labelText: 'Veuillez saisir votre mot de passe ',
+                      ),
                     ),
                   ),
                   new ListTile(
-                    title: new RaisedButton(
+                    title: new MaterialButton(
+                      shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(40.0)),
                       onPressed: () {
-                        _LoginPage();
+                        _loginPage();
                       },
-                      color: Colors.blue,
+                      color: Colors.blue[900],
                       child: new Text(
                         "Login",
                         style: new TextStyle(
@@ -81,8 +82,7 @@ class LoginState extends State<Login> {
     );
   }
 
-  _LoginPage() async {
-    int ind = 0;
+  _loginPage() async {
     bool verif = false;
     List userList = new List();
     DataSnapshot response = await database
@@ -104,18 +104,25 @@ class LoginState extends State<Login> {
     if (verif) {
       Navigator.of(context).pushReplacementNamed('/home');
     } else {
-      _showToast(context);
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: new Text("Erreur d'authentification"),
+            content: new Text("Email ou mot de passe incorrecte "),
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              new FlatButton(
+                child: new Text("Close"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
     }
-  }
-
-  void _showToast(BuildContext context) {
-    final scaffold = Scaffold.of(context);
-    scaffold.showSnackBar(
-      SnackBar(
-        content: const Text('Email ou mot de passe incorrecte'),
-        action: SnackBarAction(
-            label: 'Annuler', onPressed: scaffold.hideCurrentSnackBar),
-      ),
-    );
   }
 }

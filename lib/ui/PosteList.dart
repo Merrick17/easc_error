@@ -1,18 +1,17 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-
+import 'postes.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
-import 'users.dart';
 
-class PanneList extends StatefulWidget {
+class PostList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new PanneListState();
+    return new PostListState();
   }
 }
 
-class PanneListState extends State<PanneList> {
+class PostListState extends State<PostList> {
   //List<User> listUsers = List();
   //User usr;
   DatabaseReference dbref;
@@ -47,9 +46,9 @@ class PanneListState extends State<PanneList> {
                     Image.asset('images/erreur.png'),
                     new ListTile(
                       title: new Text("Reference: " +
-                          snapshot.value["RefMoniteur"].toString()),
+                          snapshot.value["Reference"].toString()),
                       subtitle: new Text(
-                          "Date: " + snapshot.value["Date"].toString()),
+                          "Date: " + snapshot.value["Etat"].toString()),
                     ),
                     ButtonTheme.bar(
                       child: ButtonBar(
@@ -70,10 +69,10 @@ class PanneListState extends State<PanneList> {
       ),
       floatingActionButton: new FloatingActionButton(
         onPressed: () {
-          //Navigator.push(
-          //context,
-          //MaterialPageRoute(builder: (context) => UserPage()),
-          //);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => PostePage()),
+          );
         },
         child: new Icon(Icons.add),
         backgroundColor: Colors.blue,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import './usersList.dart';
-import './pannesList.dart';
 import './historyList.dart';
+import './pannesList.dart';
+import './usersList.dart';
+import './PosteList.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -64,7 +65,12 @@ class HomeState extends State<Home> {
                     width: 100.0,
                     height: 100.0,
                     child: InkWell(
-                        onTap: () {/* ... */},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => PostList()),
+                          );
+                        },
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Padding(

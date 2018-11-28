@@ -23,7 +23,7 @@ class Panne {
       "Date": date,
       "refMoniteur": ref,
       "Technicien": tech,
-      "Adresse IP ": adrip,
+      "AdresseIP ": adrip,
       "Description": desc
     };
   }

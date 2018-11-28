@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './ui/login.dart';
 import './ui/home.dart';
-import './ui/usersList.dart';
 
 void main() {
   runApp(new MaterialApp(
