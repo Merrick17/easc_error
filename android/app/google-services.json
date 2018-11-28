@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "413414076304",
+    "firebase_url": "https://basetest-930f2.firebaseio.com",
+    "project_id": "basetest-930f2",
+    "storage_bucket": "basetest-930f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413414076304:android:0c263625a7a50035",
+        "android_client_info": {
+          "package_name": "com.PFETAV"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413414076304-8ta9lhnbe68stf9bonao93555638840e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbxvNR8Whdlk2SF_sb7AZ5RTcGxAqyj1I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:413414076304:android:0afd1b3ec6d5454a",
+        "android_client_info": {
+          "package_name": "com.easc.easc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "413414076304-8ta9lhnbe68stf9bonao93555638840e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbxvNR8Whdlk2SF_sb7AZ5RTcGxAqyj1I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
