@@ -1,8 +1,8 @@
 # easc
 
-A new Flutter project.
+A mobile app for network failure and computor failers detection
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+using firebase as backend for crud all the data , and a node js server as a third party to send ping
+request and detect fails
